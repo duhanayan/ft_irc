@@ -139,9 +139,9 @@ void Server::recieveMessage(int fd)
 		}
 		message.append(buffer);
 	}
-	message.erase(message.find_last_not_of(" \n\r\t\v\f")+1);
 	if (message.size() == 1)
 		return;
+	message.erase(message.find_last_not_of(" \n\r\t\v\f")+1);
 	ft_log(clients[fd]->getNickname() + " " + message);
 	processMessage(fd, message);
 }
